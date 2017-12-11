@@ -42,7 +42,7 @@ if build_tests:
     # get it and install it
     test_env = SConscript('#extlibs/gtest/SConscript')
 
-    if target_os in ['linux', 'windows']:
+    if target_os in ['linux', 'darwin', 'windows']:
         # Verify that 'hippomocks' mocking code is installed.  If not,
         # get it and install it
         SConscript('#extlibs/hippomocks/SConscript')
@@ -57,6 +57,7 @@ if build_tests:
         if env.get('SECURED') == '1':
             SConscript('provisioning/unittests/SConscript', 'test_env')
 
+    if target_os in ['linux', 'windows']:
         # Build IPCA unit tests
         SConscript('IPCA/unittests/SConscript', 'test_env')
 

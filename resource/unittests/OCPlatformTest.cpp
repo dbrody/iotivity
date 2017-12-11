@@ -421,7 +421,7 @@ namespace OCPlatformTest
         EXPECT_EQ(OC_STACK_OK, result);
     }
 
-#if defined (_MSC_VER)
+#if defined (_MSC_VER) || defined (__APPLE__)
     TEST(BindInterfaceToResourceTest, DISABLED_BindZeroResourceInterface)
 #else
     TEST(BindInterfaceToResourceTest, BindZeroResourceInterface)
@@ -448,7 +448,7 @@ namespace OCPlatformTest
         EXPECT_EQ(OC_STACK_OK, result);
     }
 
-#if defined (_MSC_VER)
+#if defined (_MSC_VER) || defined (__APPLE__)
     TEST(BindTypeToResourceTest, DISABLED_BindZeroResourceType)
 #else
     TEST(BindTypeToResourceTest, BindZeroResourceType)
@@ -665,7 +665,7 @@ namespace OCPlatformTest
                 CT_DEFAULT, &foundResource));
     }
 
-#if defined (_MSC_VER)
+#if defined (_MSC_VER) || defined (__APPLE__)
     TEST(FindResourceTest, DISABLED_FindResourceNullResourceURI)
 #else
     TEST(FindResourceTest, FindResourceNullResourceURI)
@@ -679,7 +679,7 @@ namespace OCPlatformTest
     }
 
 
-#if defined (_MSC_VER)
+#if defined (_MSC_VER) || defined (__APPLE__)
     TEST(FindResourceTest, DISABLED_FindResourceNullResourceURI1)
 #else
     TEST(FindResourceTest, FindResourceNullResourceURI1)
@@ -694,7 +694,7 @@ namespace OCPlatformTest
                 CT_DEFAULT, &foundResource));
     }
 
-#if defined (_MSC_VER)
+#if defined (_MSC_VER) || defined (__APPLE__)
     TEST(FindResourceTest, DISABLED_FindResourceNullHost)
 #else
     TEST(FindResourceTest, FindResourceNullHost)
@@ -781,7 +781,7 @@ namespace OCPlatformTest
                 OCPlatform::getDeviceInfo("", requestURI.str(), CT_DEFAULT, &receivedDeviceInfo));
     }
 
-#if defined (_MSC_VER)
+#if defined (_MSC_VER) || defined (__APPLE__)
     TEST(GetDeviceInfoTest, DISABLED_GetDeviceInfoNullDeviceURI)
 #else
     TEST(GetDeviceInfoTest, GetDeviceInfoNullDeviceURI)
@@ -961,7 +961,7 @@ namespace OCPlatformTest
                  CT_DEFAULT, &presenceHandler));
     }
 
-#if defined (_MSC_VER)
+#if defined (_MSC_VER) || defined (__APPLE__)
     TEST(SubscribePresenceTest, DISABLED_SubscribePresenceWithNullHost)
 #else
     TEST(SubscribePresenceTest, SubscribePresenceWithNullHost)
@@ -975,7 +975,7 @@ namespace OCPlatformTest
                  CT_DEFAULT, &presenceHandler));
     }
 
-#if defined (_MSC_VER)
+#if defined (_MSC_VER) || defined (__APPLE__)
     TEST(SubscribePresenceTest, DISABLED_SubscribePresenceWithNullPresenceHandler)
 #else
     TEST(SubscribePresenceTest, SubscribePresenceWithNullPresenceHandler)
@@ -1001,7 +1001,7 @@ namespace OCPlatformTest
                 OC_MULTICAST_IP, "core.light", CT_DEFAULT, &presenceHandler));
     }
 
-#if defined (_MSC_VER)
+#if defined (_MSC_VER) || defined (__APPLE__)
     TEST(SubscribePresenceTest, DISABLED_SubscribePresenceWithNullResourceType)
 #else
     TEST(SubscribePresenceTest, SubscribePresenceWithNullResourceType)

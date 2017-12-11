@@ -263,12 +263,21 @@ namespace OCRepresentationTest
         vector<bool> vect {true, false, false, true};
         vector<bool> vect2 {false, false, false, true};
         rep.setValue(AttrName, vect);
-        EXPECT_EQ("[true false false true ]", rep.getValueToString(AttrName));
-        EXPECT_EQ("[true false false true ]", rep[AttrName].getValueToString());
+
+        std::string validArray = "[true false false true ]";
+        #if defined (__APPLE__)
+            validArray = "[1 0 0 1 ]";
+        #endif
+        EXPECT_EQ(validArray, rep.getValueToString(AttrName));
+        EXPECT_EQ(validArray, rep[AttrName].getValueToString());
 
         rep.setValue(AttrName, vect2);
-        EXPECT_EQ("[false false false true ]", rep.getValueToString(AttrName));
-        EXPECT_EQ("[false false false true ]", rep[AttrName].getValueToString());
+        std::string validArray2 = "[false false false true ]";
+        #if defined (__APPLE__)
+            validArray2 = "[0 0 0 1 ]";
+        #endif
+        EXPECT_EQ(validArray2, rep.getValueToString(AttrName));
+        EXPECT_EQ(validArray2, rep[AttrName].getValueToString());
     }
 
     TEST(OCRepresentationValueToString, BooleanVectorVector)
@@ -281,8 +290,10 @@ namespace OCRepresentationTest
         vector<vector<bool>> vect{vect1, vect2};
 
         rep.setValue(AttrName, vect);
-        static const string Expected="[[true false false true ] [false false false true ] ]";
-
+        static string Expected="[[true false false true ] [false false false true ] ]";
+        #if defined (__APPLE__)
+            Expected = "[[1 0 0 1 ] [0 0 0 1 ] ]";
+        #endif
         EXPECT_EQ(Expected, rep.getValueToString(AttrName));
         EXPECT_EQ(Expected, rep[AttrName].getValueToString());
     }
@@ -300,9 +311,14 @@ namespace OCRepresentationTest
         vector<vector<bool>> vect2{vect21, vect22};
         vector<vector<vector<bool>>> vect{vect1, vect2};
         rep.setValue(AttrName, vect);
-        static const std::string Expected =
+        static std::string Expected =
             "[[[true false false true ] [false false false true ] ]"
             " [[false true true false ] [true true true false ] ] ]";
+        #if defined (__APPLE__)
+            Expected =
+                "[[[1 0 0 1 ] [0 0 0 1 ] ]"
+                " [[0 1 1 0 ] [1 1 1 0 ] ] ]";
+        #endif
         EXPECT_EQ(Expected, rep.getValueToString(AttrName));
         EXPECT_EQ(Expected, rep[AttrName].getValueToString());
     }

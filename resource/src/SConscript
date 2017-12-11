@@ -132,7 +132,7 @@ oclib_src = [
 if with_cloud:
     oclib_src = oclib_src + ['OCAccountManager.cpp']
 
-if target_os in ['windows', 'ios']:
+if target_os in ['windows', 'darwin', 'ios']:
     oclib_src = oclib_src + ['OCApi.cpp']
     # TODO: Add OC_EXPORT prefixes to enable DLL generation
     oclib = oclib_env.StaticLibrary('oc', oclib_src)

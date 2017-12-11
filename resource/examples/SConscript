@@ -52,6 +52,9 @@ if target_os not in ['msys_nt', 'windows']:
 
 examples_env.AppendUnique(LIBS = ['octbstack'])
 examples_env.AppendUnique(LIBS = ['oc'])
+examples_env.AppendUnique(LIBS = ['ocsrm'])
+examples_env.AppendUnique(LIBS = ['routingmanager'])
+examples_env.AppendUnique(LIBS = ['resource_directory'])
 
 compiler = examples_env.get('CXX')
 if 'g++' in compiler:
@@ -102,6 +105,8 @@ if target_os not in ['windows', 'msys_nt']:
         'lightserver',
         'threadingsample',
         ]
+
+if target_os not in ['windows', 'darwin', 'msys_nt']:
     if 'CLIENT' in examples_env.get('RD_MODE'):
         examples_env.AppendUnique(CPPPATH = ['../csdk/resource-directory/include'])
         examples_env.AppendUnique(LIBS = ['resource_directory'])

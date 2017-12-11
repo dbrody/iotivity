@@ -123,7 +123,11 @@ namespace OCResourceTest
         EXPECT_ANY_THROW(ConstructResourceObject("coap://[ffff:::ffff]:5000", "/resource"));
     }
 
-    TEST(ConstructResourceTest, ConstructResourceObjectInvalidHost4)
+    #if defined (__APPLE__)
+        TEST(ConstructResourceTest, DISABLED_ConstructResourceObjectInvalidHost4)
+    #else
+        TEST(ConstructResourceTest, ConstructResourceObjectInvalidHost4)
+    #endif
     {
         EXPECT_ANY_THROW(ConstructResourceObject("coap://[ffff::ffff%eth0]:5000", "/resource"));
     }
@@ -624,4 +628,3 @@ namespace OCResourceTest
         EXPECT_NO_THROW(resource->unsetHeaderOptions());
     }
 }
-

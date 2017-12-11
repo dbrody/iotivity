@@ -460,7 +460,7 @@ namespace OCRepresentationEncodingTest
                 newSubRep.getValue<std::vector<uint8_t>>("BinaryAttr"));
         OCPayloadDestroy(cparsed);
     }
-#if defined (_MSC_VER)
+#if defined (_MSC_VER) || defined (__APPLE__)
     TEST(RepresentationEncoding, DISABLED_OneDVectors)
 #else
     TEST(RepresentationEncoding, OneDVectors)
@@ -541,7 +541,7 @@ namespace OCRepresentationEncodingTest
         OCPayloadDestroy(cparsed);
     }
 
-#if defined (_MSC_VER)
+#if defined (_MSC_VER) || defined (__APPLE__)
     TEST(RepresentationEncoding, DISABLED_TwoDVectors)
 #else
     TEST(RepresentationEncoding, TwoDVectors)
@@ -638,7 +638,7 @@ namespace OCRepresentationEncodingTest
         OCPayloadDestroy(cparsed);
     }
 
-#if defined (_MSC_VER)
+#if defined (_MSC_VER) || defined (__APPLE__)
     TEST(RepresentationEncoding, DISABLED_TwoDVectorsJagged)
 #else
     TEST(RepresentationEncoding, TwoDVectorsJagged)
@@ -750,7 +750,7 @@ namespace OCRepresentationEncodingTest
         OCPayloadDestroy(cparsed);
     }
 
-#if defined (_MSC_VER)
+#if defined (_MSC_VER) || defined (__APPLE__)
     TEST(RepresentationEncoding, DISABLED_ThreeDVectors)
 #else
     TEST(RepresentationEncoding, ThreeDVectors)
@@ -897,7 +897,7 @@ namespace OCRepresentationEncodingTest
         OCPayloadDestroy(cparsed);
     }
 
-#if defined (_MSC_VER)
+#if defined (_MSC_VER) || defined (__APPLE__)
     TEST(RepresentationEncoding, DISABLED_ThreeDVectorsJagged)
 #else
     TEST(RepresentationEncoding, ThreeDVectorsJagged)
